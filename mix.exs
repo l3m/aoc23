@@ -1,11 +1,11 @@
-defmodule Aoc23.MixProject do
+defmodule AdventOfCode23.MixProject do
   use Mix.Project
 
   def project do
     [
       app: :aoc23,
       version: "0.1.0",
-      elixir: "~> 1.15",
+      elixir: "~> 1.14",
       start_permanent: Mix.env() == :prod,
       deps: deps()
     ]

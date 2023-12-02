@@ -15,7 +15,7 @@
       <excludeFolder url="file://$MODULE_DIR$/doc" />
       <excludeFolder url="file://$MODULE_DIR$/logs" />
     </content>
-    <orderEntry type="jdk" jdkName="Elixir at /nix/store/y61ni95hwy4g37zamgr20mg69hrpwgvl-elixir-1.15.7/lib/elixir" jdkType="Elixir SDK" />
+    <orderEntry type="jdk" jdkName="Elixir at /home/l3m/.nix-profile/lib/elixir" jdkType="Elixir SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
