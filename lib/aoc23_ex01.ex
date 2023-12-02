@@ -14,9 +14,14 @@ defmodule AdventOfCode23Ex01 do
     10 * value_l + value_r
   end
 
-  def ex01_1() do
+  def load_lines do
     {:ok, contents} = File.read("data/ex01_inputs.txt")
     lines = contents |> String.split("\n", trim: true)
+    lines
+  end
+
+  def ex01_1 do
+    lines = load_lines()
     values = Enum.map(lines, fn x -> find_value(x) end)
     value = Enum.sum(values)
     value
@@ -97,9 +102,9 @@ defmodule AdventOfCode23Ex01 do
 
     left =
       case {digit_l, word_l} do
-        {{index_d, value_d}, {index_w, _}} when index_d < index_w -> 10 * value_d
-        {{_, value_d}, nil} -> 10 * value_d
-        {_, {_, value_w}} -> 10 * value_w
+        {{index_d, value_d}, {index_w, _}} when index_d < index_w -> value_d
+        {{_, value_d}, nil} -> value_d
+        {_, {_, value_w}} -> value_w
         {nil, nil} -> 0
       end
 
@@ -111,12 +116,12 @@ defmodule AdventOfCode23Ex01 do
         {nil, nil} -> 0
       end
 
-    left + right
+    value = 10 * left + right
+    value
   end
 
-  def ex01_2() do
-    {:ok, contents} = File.read("data/ex01_inputs.txt")
-    lines = contents |> String.split("\n", trim: true)
+  def ex01_2 do
+    lines = load_lines()
     values = Enum.map(lines, fn x -> find_value2(x) end)
     value = Enum.sum(values)
     value
