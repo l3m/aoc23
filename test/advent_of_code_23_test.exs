@@ -30,5 +30,4 @@ defmodule AdventOfCode23Test do
     assert is_integer(value)
     assert 54719 = value
   end
-
 end

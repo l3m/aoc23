@@ -11,7 +11,7 @@ defmodule AdventOfCode23Ex01 do
     value_l = Enum.find_value(gs, fn x -> try_int(x) end)
     gs_rev = Enum.reverse(gs)
     value_r = Enum.find_value(gs_rev, fn x -> try_int(x) end)
-    (10*value_l) + value_r
+    10 * value_l + value_r
   end
 
   def ex01_1() do
@@ -33,6 +33,7 @@ defmodule AdventOfCode23Ex01 do
     gs = String.graphemes(line)
     index_l = Enum.find_index(gs, fn v -> try_int(v) end)
     gs_rev = Enum.reverse(gs)
+
     index_r =
       case Enum.find_index(gs_rev, fn v -> try_int(v) end) do
         nil -> nil
@@ -44,24 +45,43 @@ defmodule AdventOfCode23Ex01 do
     {left, right}
   end
 
-  def find_word(line, index) do
-    case String.slice(line, index..index+2) do
+  def find_word3(line, index) do
+    case String.slice(line, index..(index + 2)) do
       "one" -> {index, 1}
       "two" -> {index, 2}
       "six" -> {index, 6}
-      _ ->
-        case String.slice(line, index..index+3) do
-          "four" -> {index, 4}
-          "five" -> {index, 5}
-          "nine" -> {index, 9}
-          _ ->
-            case String.slice(line, index..index+4) do
-              "three" -> {index, 3}
-              "seven" -> {index, 7}
-              "eight" -> {index, 8}
-              _ -> nil
+      _ -> nil
+    end
+  end
+
+  def find_word4(line, index) do
+    case String.slice(line, index..(index + 3)) do
+      "four" -> {index, 4}
+      "five" -> {index, 5}
+      "nine" -> {index, 9}
+      _ -> nil
+    end
+  end
+
+  def find_word5(line, index) do
+    case String.slice(line, index..(index + 4)) do
+      "three" -> {index, 3}
+      "seven" -> {index, 7}
+      "eight" -> {index, 8}
+      _ -> nil
+    end
+  end
+
+  def find_word(line, index) do
+    case find_word3(line, index) do
+      nil ->
+        case find_word4(line, index) do
+          nil -> find_word5(line, index)
+          v -> v
         end
-      end
+
+      v ->
+        v
     end
   end
 
@@ -82,13 +102,15 @@ defmodule AdventOfCode23Ex01 do
         {_, {_, value_w}} -> 10 * value_w
         {nil, nil} -> 0
       end
+
     right =
       case {digit_r, word_r} do
         {{index_d, value_d}, {index_w, _}} when index_d > index_w -> value_d
         {{_, value_d}, nil} -> value_d
         {_, {_, value_w}} -> value_w
         {nil, nil} -> 0
-    end
+      end
+
     left + right
   end
 
@@ -99,5 +121,4 @@ defmodule AdventOfCode23Ex01 do
     value = Enum.sum(values)
     value
   end
-
 end
