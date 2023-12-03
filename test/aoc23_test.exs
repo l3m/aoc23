@@ -45,4 +45,41 @@ defmodule AdventOfCode23Test do
     value = AdventOfCode23Ex02.part2()
     assert 71585 = value
   end
+
+  test "ex03_1 can determine parts" do
+    number = {:number, {5, 8}, "1234"}
+    bad_sym1 = {:symbol, {3, 7}, "*"}
+    bad_sym2 = {:symbol, {3, 9}, "*"}
+    bad_sym3 = {:symbol, {10, 7}, "*"}
+    bad_sym4 = {:symbol, {10, 9}, "*"}
+    bad1 = AdventOfCode23Ex03.try_mk_part(number, [bad_sym1, bad_sym2, bad_sym3, bad_sym4])
+    ExUnit.Assertions.refute bad1
+    good_sym1 = {:symbol, {4, 7}, "*"}
+    good1 = AdventOfCode23Ex03.try_mk_part(number, [good_sym1])
+    assert good1
+    good_sym2 = {:symbol, {9, 7}, "*"}
+    good2 = AdventOfCode23Ex03.try_mk_part(number, [good_sym2])
+    assert good2
+  end
+
+  test "ex03_1 example works" do
+    value = AdventOfCode23Ex03.example1()
+    assert 4361 = value
+  end
+
+  test "ex03_1 solution works" do
+    value = AdventOfCode23Ex03.part1()
+    assert 520135 = value
+  end
+
+  test "ex03_2 example works" do
+    value = AdventOfCode23Ex03.example2()
+    assert 467835 = value
+  end
+
+  test "ex03_2 solution works" do
+    value = AdventOfCode23Ex03.part2()
+    assert 72514855 = value
+  end
+
 end
