@@ -20,7 +20,7 @@ defmodule AdventOfCode23Ex01 do
     lines
   end
 
-  def ex01_1 do
+  def part1 do
     lines = load_lines()
     values = Enum.map(lines, fn x -> find_value(x) end)
     value = Enum.sum(values)
@@ -120,7 +120,7 @@ defmodule AdventOfCode23Ex01 do
     value
   end
 
-  def ex01_2 do
+  def part2 do
     lines = load_lines()
     values = Enum.map(lines, fn x -> find_value2(x) end)
     value = Enum.sum(values)

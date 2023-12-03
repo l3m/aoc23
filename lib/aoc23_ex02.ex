@@ -55,7 +55,7 @@ defmodule AdventOfCode23Ex02 do
     games
   end
 
-  def ex02_1 do
+  def part1 do
     games = load_games()
     total_cubes = {12, 13, 14}
     possible_games = Enum.filter(games, fn g -> possible_game(g, total_cubes) end)
@@ -64,7 +64,7 @@ defmodule AdventOfCode23Ex02 do
     ids_sum
   end
 
-  def ex02_2 do
+  def part2 do
     games = load_games()
     powers_of_games = Enum.map(games, fn {_, {r, g, b}} -> r * g * b end)
     powers_sum = Enum.sum(powers_of_games)

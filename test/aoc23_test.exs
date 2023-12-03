@@ -9,7 +9,7 @@ defmodule AdventOfCode23Test do
   end
 
   test "ex01_1 solution works" do
-    value = AdventOfCode23Ex01.ex01_1()
+    value = AdventOfCode23Ex01.part1()
     assert 55971 = value
   end
 
@@ -32,17 +32,17 @@ defmodule AdventOfCode23Test do
   end
 
   test "ex01_2 solution works" do
-    value = AdventOfCode23Ex01.ex01_2()
+    value = AdventOfCode23Ex01.part2()
     assert 54719 = value
   end
 
   test "ex02_1 solution works" do
-    value = AdventOfCode23Ex02.ex02_1()
+    value = AdventOfCode23Ex02.part1()
     assert 2331 = value
   end
 
   test "ex02_2 solution works" do
-    value = AdventOfCode23Ex02.ex02_2()
+    value = AdventOfCode23Ex02.part2()
     assert 71585 = value
   end
 end
