@@ -82,4 +82,19 @@ defmodule AdventOfCode23Test do
     assert 72514855 = value
   end
 
+  test "ex04_1 example works" do
+    value = AdventOfCode23Ex04.example1()
+    assert 13 = value
+  end
+
+  test "ex04_1 solution works" do
+    value = AdventOfCode23Ex04.part1()
+    assert 26914 = value
+  end
+
+  test "ex04_2 solution works" do
+    value = AdventOfCode23Ex04.part2()
+    assert 13080971 = value
+  end
+
 end
